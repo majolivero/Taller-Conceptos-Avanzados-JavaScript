@@ -125,7 +125,24 @@ Este ejercicio te permitirá desarrollar un script que demuestra cómo los closu
 #### Preguntas para Reflexión
 
 - ¿Cómo mantienen las funciones su acceso a variables externas después de que la función externa ha terminado de ejecutarse?
+CONCEPTO IMPORTANTE: ÁMBITO LÉXICO Y CLOSURE. 
+En JavaScript, las funciones pueden mantener su acceso a las variables externas incluso después de que la función externa ha terminado de ejecutarse gracias
+a un concepto llamado closure. El closure es una función que recuerda el entorno léxico en el que se creó. Esto significa que una función puede acceder a las variables
+de su entorno exterior, incluso después de que la función externa haya terminado de ejecutarse. 
+
 - ¿Cuáles son las implicaciones de memoria de mantener estos closures, especialmente si se crean muchas instancias de funciones con closures?
+Los closures en JavaScript pueden tener implicaciones de memoria importantes si no se manejan correctamente, especialmente si se crean instancias de funciones con closures.
+Aquí están algunas implicaciones:
+
+*USO INCREMENTADO DE MEMORIA:
+Cada closure que se crea mantiene una referencia al entorno léxico en el que fue creada, lo que significa que todas las variables de ese entorno también se mantienen en memoria. Si se crean muchas closures, esto puede llevar a un uso incrementado de memoria ya que cada closure puede potencialmente retener una copia de todas las variables en su alcance exterior.
+
+*POSIBLES FUGAS DE MEMORIA:
+Las fugas de memoria ocurren cuando los objetos que ya no son necesarios no son liberados de la memoria. Si una closure mantiene referencias a objetos grandes o a muchos objetos, estos objetos no serán recolectados por el garbage collector hasta que todas las referencias a ellos hayan sido eliminadas. Esto puede ser un problema si no se tiene cuidado al crear closures y no se eliminan adecuadamente cuando ya no son necesarios.
+
+*MAYOR COMPLEJIDAD EN EL DEPURADO
+Las fugas de memoria ocurren cuando los objetos que ya no son necesarios no son liberados de la memoria. Si una closure mantiene referencias a objetos grandes o a muchos objetos, estos objetos no serán recolectados por el garbage collector hasta que todas las referencias a ellos hayan sido eliminadas. Esto puede ser un problema si no se tiene cuidado al crear closures y no se eliminan adecuadamente cuando ya no son necesarios.
+
 
 #### Ejercicio 4: Funciones Declaradas vs Expresadas
 
