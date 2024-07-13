@@ -234,7 +234,29 @@ Las fugas de memoria ocurren cuando los objetos que ya no son necesarios no son 
 **Implementación del Script:** - Inicia tu script mostrando un mensaje en consola que diga "Mensaje 1: Inmediatamente". - Luego, utiliza setTimeout() con un retardo de 0 segundos para mostrar "Mensaje 2: Con timeout de 0 segundos". - Finalmente, configura otro setTimeout() con un retardo de 1 segundo para mostrar "Mensaje 3: Con timeout de 1 segundo".
 **Ejecución y Observación:** - Ejecuta el script en tu entorno de desarrollo o en la consola del navegador. - Observa el orden en el que aparecen los mensajes y toma nota.
 
-**Reflexión y Análisis:** - ¿Por qué "Mensaje 2: Con timeout de 0 segundos" no se muestra inmediatamente después de "Mensaje 1: Inmediatamente", a pesar de tener un retardo de 0 segundos? - ¿Que nos dicen este comportamiento sobre el event loop, las macro y micro tareas, y la forma en que JavaScript maneja las operaciones asíncronas?
+**Reflexión y Análisis:** - ¿Por qué "Mensaje 2: Con timeout de 0 segundos" no se muestra inmediatamente después de "Mensaje 1: Inmediatamente", a pesar de tener un retardo de 0 segundos?
+
+Para recordar:
+EVENT LOOP: Es un concepto fundamental en JavaScript que permit la ejecución no bloqueante del código, lo que es esencial para manejar operaciones asíncronas. 
+JavaScript es un lenguaje de un solo hilo, lo que significa que puede ejecutar una sola operación a la vez. Sin embargo, gracias al event loop, puede manejar múltiples operaciones asíncronas, como las solicitudes de red, temporizadores y eventos de usuario, sin bloquear la ejecución del código.
+
+La razón por la que mensaje 2 no se muestra inmediatamente después de mensaje 1 es que, JavaScript utiliza un event loop para manejar operaciones asíncronas. Las tareas asíncronas, como los callbacks de setTimeout, se colocan en la cola de tareas(task queue) después de que el tiempo especificado haya transcurrido. Aunque setTimeout se llama con un retraso de cero segundos, la ejecución del callback asociado se maneja de manera asíncrona. 
+
+PASO A PASO:
+
+1. Pila de llamadas (Call Stack): La llamada a setTimeout se añade a la pila de llamadas y se ejecuta. La función setTimeout establece un temporizador con un retraso de 0 milisegundos.
+2. Web APIs: El temporizador de setTimeout se maneja mediante las Web APIs del navegador. El callback se programa para ser añadido a la cola de tareas una vez que el temporizador expire.
+3. Cola de tareas (Task Queue): Después de que el temporizador expire (que es inmediatamente en este caso), el callback se coloca en la cola de tareas.
+4. Event Loop: El event loop verifica continuamente si la pila de llamadas está vacía. Si la pila de llamadas está vacía, el event loop toma la primera tarea de la cola de tareas (en este caso, el callback de setTimeout) y la añade a la pila de llamadas para su ejecución.
+
+Sin embargo, el callback no se ejecuta inmediatamente después de que setTimeout se llame, ya que la ejecución del callback depende de cuándo la pila de llamadas esté vacía.
+
+ - ¿Que nos dicen este comportamiento sobre el event loop, las macro y micro tareas, y la forma en que JavaScript maneja las operaciones asíncronas?
+
+ El event loop prioriza la ejecución de tareas en la pila de llamadas (call stack). Las tareas en la cola de tareas se ejecutan solo cuando la pila de llamadas está vacía. Esto significa que aunque setTimeout tenga un retraso de 0 segundos, el callback asociado no se ejecuta inmediatamente después de que se llame setTimeout, sino que espera su turno en la cola de tareas.
+
+ El event loop asegura que las tareas se manejen en el orden adecuado y que las operaciones síncronas y las microtareas se prioricen sobre las macrotareas como setTimeout.
+ Aunque setTimeout con un retraso de 0 segundos se ejecuta de manera asíncrona, no garantiza la ejecución inmediata del callback debido a cómo JavaScript gestiona las tareas en la cola de tareas y en la pila de llamadas.
 
 #### Ejercicio 7: Considera el siguiente script:
 
