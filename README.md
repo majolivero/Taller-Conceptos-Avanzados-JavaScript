@@ -213,9 +213,15 @@ Las fugas de memoria ocurren cuando los objetos que ya no son necesarios no son 
   - 5.3: Ejecutar el Callback: Una vez que la promesa se resuelva, debes ejecutar el callback proporcionado. Este callback simplemente mostrará un mensaje en la consola, por ejemplo: "¡Promesa cumplida y callback ejecutado!".
   - 5.4: Invocar la Función: Después de definir la función, deberás invocarla pasando un callback y la promesa que creaste. Observa cómo el callback solo se ejecuta después de que la promesa se resuelve.
   - 5.5: Despues de invocar la funcion, responde las siguientes preguntas:
+
     -¿Qué sucede si cambias el tiempo de resolución de la promesa a 5 segundos o a 1 segundo?
+    El callback tiene que esperar este tiempo(5 segundos 0 1 segundo) a la que promesa se resuelva para poder ejecutarse.
+
     - ¿Cómo se comporta la función si la promesa es rechazada en lugar de resuelta?
+    Como no se consideró que pasaría si la promesa es rechazada, no se tiene ninguna instrucción que ejecute esto. 
+
     - ¿Puedes modificar la función para que el callback maneje diferentes tipos de información dependiendo del resultado de la promesa?
+    Si, adicionando un valor en el resolve de la promesa y haciendolo llegar hasta el callback para manejar el tipo de información que quiero mostrar. 
 
   Nota\* Si deseas llevar este ejercicio un paso más allá, modifica la función para que también maneje el rechazo de la promesa. En este caso, el callback debería recibir información sobre si la promesa fue resuelta o rechazada, y mostrar un mensaje adecuado en la consola.
 
