@@ -170,7 +170,7 @@ Las fugas de memoria ocurren cuando los objetos que ya no son necesarios no son 
     }
 
     // Declaración de una función declarada
-    function funcionDeclarada() {
+    function funcionDeclarada() {    //Una función declarada es una función que se define con la palabra function seguida del nombre de la función
       return "Función declarada ha sido llamada.";
     }
 
@@ -189,9 +189,20 @@ Las fugas de memoria ocurren cuando los objetos que ya no son necesarios no son 
   - **4.2: Ejecuta el Script:** Observa los resultados de los intentos de llamar a ambas funciones antes y después de su declaración.
 
   - **4.3: Reflexión:** Después de ejecutar el código, responde los siguientes puntos:
+
     - ¿Qué sucedió cuando intentaste llamar a las funciones antes de su declaración?
+    Antes de la declaración la funcionDeclarada si fue llamada, pero la funcionExpresada no fue llamada. En consola obtuvimos lo siguiente:
+    Error: Cannot access 'funcionExpresada' before initialization. 
+
     - ¿Cómo difieren los resultados entre la función declarada y la función expresada?
+    Una función declarada es una función que se define con la palabra clave function seguida del nombre de la función. Esta definición se eleva(hoisting) al principio del contexto 
+    de ejecución, lo que significa que puede ser llamada antes de su declaración en el código. 
+    Mientras que, una función expresada es una función que se define dentro de una expresión, como una asignación de variable. Este tipo de función no se eleva(hoisting), lo que
+    significa que no se puede llamar antes de su definición en el código. 
+
     - ¿Qué indica esto sobre cómo el JavaScript maneja estas dos diferentes declaraciones de funciones?
+    Las funciones declaradas pueden ser llamadas antes de su definición debido al hoisting. Las funciones expresadas no se elevan por lo que no se pueden llamar
+    antes de su definición. 
 
 #### Ejercicio 5: Promesas y Callbacks en Acción
 
