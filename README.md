@@ -292,7 +292,7 @@ console.log("Fin del script");
 
 - Proporciona una interfaz simple con prompts para que el usuario interactúe con el contador.
 
-- Utiliza un bucle while para preguntar al usuario si desea incrementar el contador o salir.
+- Utiliza un bucle while para preguntar al usuario si desea incrementar el contador o salir. 
 
 #### Ejercicio 9: Domina las Web APIs con Promesas y Fetch
 
