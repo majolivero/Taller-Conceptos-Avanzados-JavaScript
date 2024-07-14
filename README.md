@@ -503,14 +503,6 @@ SE EJECUTA Y SE ELIMINA DE LA CALL STACK MACROTAREA 1 SECOND (setTimeout)
 ![alt text](image-26.png)
 
 
-
-
-
-
-
-
-
-
 ### Seccion 5: Aplicando Todos los Conceptos - Proyecto de Sistema de Reservas de Hotel
 
 **Objetivo:** Desarrollar un sistema de reservas de hotel que permita a los usuarios reservar habitaciones, verificar disponibilidad, ver sus reservas actuales y cancelar reservas. Este sistema integrará los conceptos de scope, hoisting, closures, funciones declaradas y expresadas, asincronía, promesas, callbacks, y operaciones con Web APIs.
