@@ -325,6 +325,7 @@ setTimeout(() => {
 // Microtarea: Promesa
 Promise.resolve()
   .then(() => {
+    //Macrotarea anidada dentro de una microtarea
     setTimeout(() => {
       console.log("Macrotarea (setTimeout) inside Microtarea 1");
       return "from micro 1";
@@ -352,11 +353,69 @@ console.log("Fin del script");
 - Finalmente, responde las siguientes preguntas:
 
   - ¿Qué tareas se consideran macrotareas y cuáles son microtareas?
+
+MICROTAREAS:
+
+1. Promise.resolve()
+  .then(() => {...})   //Se resuelve, añadiendo una macrotarea y no imprime nada aún. 
+
+2. .then((message) => {
+    console.log("Microtarea 2 (Promesa)");
+  });
+
+3. Promise.resolve()
+  .then(() => {
+    console.log("Microtarea 3 (Promesa)");
+  })
+  .then(() => {
+    console.log("Microtarea 4 (Promesa)");
+  });
+
+  MACROTAREAS:
+
+1. setTimeout(() => {
+      console.log("Macrotarea 0 seconds (setTimeout)");
+    }, 0);
+
+2.  setTimeout(() => {
+      console.log("Macrotarea (setTimeout) inside Microtarea 1");
+      return "from micro 1";
+    }, 0);
+
+3. setTimeout(() => {
+    console.log("Macrotarea 1 second (setTimeout)");
+  }, 1000);
+
   - ¿Cómo se relacionan las macrotareas y microtareas con el event loop?
+
+Las microtareas son tareas que se colocan en la cola de microtareas y tienen prioridad sobre las macrotareas. 
+Se ejecutan justo después del stack de ejecución actual y antes de cualquier macrotarea pendiente. 
+
+Las macrotareas son aquellas tareas que se colocan en la cola de macrotareas. 
+Se ejecutan una vez que el stack de ejecución actual esté vacío y todas las microtareas pendientes hayan sido ejecutadas.
+
+El event loop sigue el siguiente proceso:
+1. Ejecuta todo el código global inicial.
+2. Procesa todas las microtareas pendientes.
+3. Luego, procesa la primera macrotarea en la cola de macrotareas.
+4. Vueleve a procesar las microtareas pendientes. 
+5. Repite este ciclo continuamente. 
+
   - ¿Qué sucede cuando una microtarea genera una nueva macrotarea dentro de ella?
+
+  Cuando una microtarea genera una nueva macrotarea dentro de ella, esta nueva macrotarea no se ejecuta inmediatamente después de la microtarea. En su lugar, la nueva macrotarea se encola en la cola de macrotareas y se ejecutará en el próximo ciclo del event loop, después de que todas las microtareas actuales se hayan completado y el stack de ejecución esté vacío.
+
   - ¿Cómo se manejan las promesas y los setTimeout en relación con el event loop?
 
+MANEJO DE setTimeout:
+setTimeout añade una función a la cola de macrotareas. Aunque se especifique un retardo de 0 milisegundos, no se ejecutará inmediatamente. Se programará para ser ejecutada después de que el call stack esté vacío y después de que se hayan procesado todas las microtareas actuales.
+
+Manejo de Promesas:
+Las promesas utilizan la cola de microtareas. Cuando una promesa se resuelve, su callback .then se encola como una microtarea. Esto significa que las microtareas (promesas) tienen mayor prioridad que las macrotareas (setTimeout).
+
 - Nota\* Para este ejercicio, es necesario adjuntar screenshots de la visualización del event loop en jsv9000.app y responder las preguntas planteadas.
+
+
 
 ### Seccion 5: Aplicando Todos los Conceptos - Proyecto de Sistema de Reservas de Hotel
 
