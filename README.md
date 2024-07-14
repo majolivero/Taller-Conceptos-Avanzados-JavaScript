@@ -415,6 +415,100 @@ Las promesas utilizan la cola de microtareas. Cuando una promesa se resuelve, su
 
 - Nota\* Para este ejercicio, es necesario adjuntar screenshots de la visualización del event loop en jsv9000.app y responder las preguntas planteadas.
 
+EVALUATE SCRIPT 
+![alt text](image.png)
+
+SE EJECUTA UNA TAREA SINCRONA
+![alt text](image-1.png)
+
+SE ENCOLA LA PRIMERA MACROTAREA
+![alt text](image-2.png)
+
+SE ENCOLA LA SEGUNDA MACROTAREA
+![alt text](image-3.png)
+
+SE ENCOLA LA PRIMERA MICROTAREA
+![alt text](image-4.png)
+
+SE ENCOLA LA SEGUNDA MICROTAREA
+![alt text](image-5.png)
+
+ESTAN EN COLA LAS MACROTAREAS Y MICROTAREAS, SE REVUELVE UNA TAREA SINCRONA
+![alt text](image-6.png)
+
+UNA MICROTAREA PASA A LA PILA DE LLAMADAS
+![alt text](image-7.png)
+
+SE ENCOLA OTRA MACROTAREA
+![alt text](image-8.png)
+
+SE ELIMINA UNA MICROTAREA DE LA PILA DE LLAMADAS
+![alt text](image-9.png)
+
+SE ENCOLA UNA MICROTAREA
+![alt text](image-10.png)
+
+UNA MICROTAREA PASA A LA CALL STACK 
+![alt text](image-11.png)
+
+SE RESUELVE LA MICROTAREA 3 (Promesa)
+![alt text](image-12.png)
+
+SE ELIMINA UNA MICROTAREA DE LA CALL STACK
+![alt text](image-13.png)
+
+SE ENCOLA UNA MICROTAREA
+![alt text](image-14.png)
+
+UNA MICROTAREA PASA A LA CALLSTACK
+![alt text](image-15.png)
+
+SE RESUELVE LA MICROTAREA 2 (PROMESA)
+![alt text](image-16.png)
+
+SE ELIMINA UNA MICROTAREA DE LA CALL STACK
+![alt text](image-17.png)
+
+UNA MICROTAREA PASA A LA CALL STACK
+![alt text](image-18.png)
+
+SE EJECUTA LA MICROTAREA 4 (PROMESA)
+![alt text](image-19.png)
+
+SE ELIMINA UNA MICROTAREA DE LA COLA DE LLAMADAS
+![alt text](image-20.png)
+
+verifica si hay no hay microtareas
+
+UNA MACROTAREA PASA LA PILA DE LLAMADAS
+![alt text](image-21.png)
+
+MACROTAREA 0 SECONDS (setTimeout) se ejecuta y se elimina de la call stack
+![alt text](image-22.png)
+
+verifica si no hay microtareas
+
+UNA MACROTAREA A LA CALL STACK
+![alt text](image-23.png)
+
+SE EJECUTA Y SE ELIMINA DE LA CALL STACK LA MACROTAREA(setTimeout) inside microtarea 1
+![alt text](image-24.png)
+
+verifica si no hay microtareas
+
+UNA MACROTAREA PASA A LA CALL STACK
+![alt text](image-25.png)
+
+SE EJECUTA Y SE ELIMINA DE LA CALL STACK MACROTAREA 1 SECOND (setTimeout)
+![alt text](image-26.png)
+
+
+
+
+
+
+
+
 
 
 ### Seccion 5: Aplicando Todos los Conceptos - Proyecto de Sistema de Reservas de Hotel
