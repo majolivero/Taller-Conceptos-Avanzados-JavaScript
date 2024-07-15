@@ -34,7 +34,7 @@ cargarYMostrarData()
     // ... Continuar con la lógica de la app
     while (true) {
       const userInput = prompt(
-        "Ingresa la opcion que deseas 1. Reservar 2. Ver Reservas 3. Cancelar Reserva 4. Editar 5. Salir"
+        "Ingresa la opción que deseas 1. Reservar 2. Ver Reservas 3. Cancelar Reserva 4. Editar 5. Salir"
       );
       switch (userInput) {
         case "1":
@@ -58,7 +58,7 @@ cargarYMostrarData()
             let idReserva = crearReserva(userInput2, fechaInicio, fechaFin, nombreUsuario);
             alert(`reserva exitosa!
                 
-                el id de tu reserva es ${idReserva}`);
+                El id de tu reserva es ${idReserva}`);
           break;
         case "2":
             let nombreUser = prompt("Escriba su nombre:");
