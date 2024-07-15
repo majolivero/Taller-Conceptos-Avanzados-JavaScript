@@ -24,9 +24,9 @@ const questionnaire = (questions) => {
           }
         });
         alert(`Las respuestas correctas son:
-            Pregunta 1: ${arrayAnswer[0]};
+            Pregunta 1: ${arrayAnswer[0]}
             Explicación:  En JavaScript puedes acceder a una variable global desde un scope local. Las variables globales son accesibles en cualquier parte del código, incluyendo dentro de funciones, bloques y otros scopes locales.`)
-            alert(`Pregunta 2: ${arrayAnswer[1]};
+            alert(`Pregunta 2: ${arrayAnswer[1]}
             Explicación: En JavaScript puedes acceder a una variable global desde un scope de bloque. Las variables globales son accesibles en cualquier parte del código, incluyendo dentro de bloques definidos por llaves {} como ciclos for y condicionales if, entre otros.`)
             alert(`Pregunta 3: ${arrayAnswer[2]}
             Explicación: En JavaScript no puedes acceder a una variable local desde un scope global. Las variables locales, que se definen dentro de una función o bloque, están limitadas a ese scope específico y no son accesibles fuera de él.`)
